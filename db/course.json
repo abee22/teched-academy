@@ -1,0 +1,18 @@
+[
+    {
+        "id": "0e1bcafc-d57a-4ca6-ac23-a82d81ecbc2a",
+        "name": "Introduction to AI",
+        "description": "Beginners guide for AI",
+        "instructor": "Alice",
+        "duration": 90,
+        "status": "Active"
+    },
+    {
+        "id": "3a3a12a0-982e-4779-8967-0172d50ab376",
+        "name": "Introduction to Javascript",
+        "description": "Beginners guide for JS",
+        "instructor": "Bob",
+        "duration": 60,
+        "status": "Active"
+    }
+]
