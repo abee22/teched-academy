@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "f3fed683-7d72-44db-9ce6-4d66d418f8a6",
+		"name": "TechEd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Abhishek Y\",\n    \"email\": \"abhishek@example.com\",\n    \"courseId\": \"3a3a12a0-982e-4779-8967-0172d50ab376\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Key gen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/certificates/key-gen",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"certificates",
+						"key-gen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issue certificate",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaGlzaGVrQGV4YW1wbGUuY29tIiwiaWQiOiIxNDM5OTFmMC02MmUxLTQxZTYtYjQ2MS00MWUxYTNjZDRjZmMiLCJpYXQiOjE2OTczODMzMjl9.kaTUx-rNt1mBA1ycWPF_6dKryzTC-xQ4wTqp6TR2Lhs",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/certificates/issue/143991f0-62e1-41e6-b461-41e1a3cd4cfc/3a3a12a0-982e-4779-8967-0172d50ab376",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"certificates",
+						"issue",
+						"143991f0-62e1-41e6-b461-41e1a3cd4cfc",
+						"3a3a12a0-982e-4779-8967-0172d50ab376"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify certificate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTczODMzNzh9.9VYIaE69l6eiuV3FQkz07u684tnC_J9-J76xmb6seMU",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"certificateData\": {\n            \"@context\": [\n                \"https://www.w3.org/2018/credentials/v1\",\n                \"https://www.w3.org/2018/credentials/examples/v1\"\n            ],\n            \"type\": [\n                \"VerifiableCredential\",\n                \"CourseCompletionCredential\"\n            ],\n            \"issuer\": \"did:customFunc:techedacademy\",\n            \"issuanceDate\": \"2023-10-15T15:22:40.213Z\",\n            \"credentialSubject\": {\n                \"id\": \"did:customFunc:143991f0-62e1-41e6-b461-41e1a3cd4cfc\",\n                \"studentName\": \"Abhishek\",\n                \"courseName\": \"Introduction to Javascript\",\n                \"courseCompletionDate\": \"2023-10-15T15:22:40.213Z\"\n            },\n            \"proof\": {\n                \"type\": \"RsaSignature2018\",\n                \"created\": \"2023-10-15T15:22:40.213Z\",\n                \"proofPurpose\": \"assertionMethod\",\n                \"verificationMethod\": \"-----BEGIN PUBLIC KEY-----\\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC73ukquWwiCU6lQl1d7wi4GVd0\\nmTbAt9rhPlr3RvV3Ykg38a5YKKNKvvM7Ak1+lsvfnuRy0Wqr4i7wVzfc1scgqSZY\\nNJUEcc+erRBDUidhBipKHALwRxEFVyINxOGTwGxzbhPGbExegRjoziimWy+0Ct7C\\nA1zueh2Tt3zbz1hQCwIDAQAB\\n-----END PUBLIC KEY-----\\n\",\n                \"jws\": \"t/tysYMYHdSh7jikfas5+kVs6eXKVBRX+n5oR+Mc4IvvwxAQqtQ28A/nqiEdZA5XlD6wDLX8IlHCPH/ijV+LW7/PDkigWvFhYDGxHymwfzNj/6bsXm7Klw3LSQhYhe45oU6lz0g3VhfmbJx6U9mCQBe6eI/iKwhZShBznd3r4v4=\"\n            }\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/certificates/verify",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"certificates",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"abhishek@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/student",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth College",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/auth/college",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"college"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/courses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"courses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
